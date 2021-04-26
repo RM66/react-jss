@@ -1,5 +1,5 @@
 {
-  "name": "react-jss",
+  "name": "@rm66/react-jss",
   "version": "8.7.0",
   "description": "JSS integration with React",
   "main": "lib/index.js",
