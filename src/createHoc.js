@@ -93,7 +93,8 @@ export default (stylesOrCreator, InnerComponent, options = {}) => {
       this.state = this.createState({theme}, props)
     }
 
-    componentWillMount() {
+    // eslint-disable-next-line camelcase, react/sort-comp
+    UNSAFE_componentWillMount() {
       this.manage(this.state)
     }
 
@@ -103,13 +104,15 @@ export default (stylesOrCreator, InnerComponent, options = {}) => {
       }
     }
 
-    componentWillReceiveProps(nextProps, nextContext) {
+    // eslint-disable-next-line camelcase
+    UNSAFE_componentWillReceiveProps(nextProps, nextContext) {
       this.context = nextContext
       const {dynamicSheet} = this.state
       if (dynamicSheet) dynamicSheet.update(nextProps)
     }
 
-    componentWillUpdate(nextProps, nextState) {
+    // eslint-disable-next-line camelcase
+    UNSAFE_componentWillUpdate(nextProps, nextState) {
       if (isThemingEnabled && this.state.theme !== nextState.theme) {
         const newState = this.createState(nextState, nextProps)
         this.manage(newState)
